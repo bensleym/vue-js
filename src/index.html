@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>First Vue output</h2>
+      {{text}} Hello world
+    </div>
+
+    <div id="list">
+      <h2>V-For</h2>
+      <ul>
+        <li v-for="item in items">{{ item }}</li>
+      </ul>
+    </div>
+
+    <div id="numList">
+      <h2>V-For Set Number Array</h2>
+      <ul>
+        <li v-for="num in 5">
+          {{ num }}
+        </li>
+      </ul>
+    </div>
+
+    <div id="typing">
+      <h2>V-Model</h2>
+      <textarea v-model="message"> </textarea>
+      <h3>{{message}}</h3>
+    </div>
+
+    <div id="names">
+      <h2>V-Model Array</h2>
+      <input type="checkbox" id="Mark" value="Mark" v-model="checkedNames" />
+      <label for="Mark">Mark</label>
+
+      <input type="checkbox" id="Peter" value="Peter" v-model="checkedNames" />
+      <label for="Peter">Peter</label>
+
+      <input type="checkbox" id="Luke" value="Luke" v-model="checkedNames" />
+      <label for="Luke">Luke</label>
+
+      <input type="checkbox" id="John" value="John" v-model="checkedNames" />
+      <label for="John">John</label>
+
+      <h3>{{ checkedNames }}</h3>
+    </div>
+
+    <div id="namesExtened">
+      <h2>V-For Array</h2>
+      <span v-for="option in options">
+        <input
+          type="checkbox"
+          :id="option.value"
+          :value="option.value"
+          v-model="checkedNames"
+        />
+        <label for="option.value">{{ option.value }}</label>
+      </span>
+      <h3>{{ checkedNames }}</h3>
+    </div>
+
+    <div id="ifState">
+      <h2>V-If</h2>
+      <input type="text" v-model="typing" />
+      <button type="submit" v-if="typing">Your typing</button>
+    </div>
+
+    <div id="showState">
+      <h2>V-Show</h2>
+      <input type="text" v-model="typing" />
+      <button type="submit" v-show="typing">Your typing</button>
+    </div>
+
+    <div id="ifElse">
+      <h2>V-If / V-Else</h2>
+      <h3>Do you like Tacos?</h3>
+      <input type="radio" v-model="tacos" value="yes" id="tacoYes" />
+      <label for="tacoYes">Yes</label>
+      <input type="radio" v-model="tacos" value="no" id="tacoNo" />
+      <label for="tacoNo">No</label>
+      <div v-if="tacos">
+        <p v-if="tacos === 'yes'">Yay you like Tacos</p>
+        <p v-else>No your a monster</p>
+      </div>
+    </div>
+
+    <div id="binding">
+      <h2>V-Bind / :</h2>
+      <label for="texting">Type here:</label>
+      <input id="texting" v-model="texting" type="text" />
+      <button type="submit" :class="[texting ? 'active-class' : '']">
+        Send me now!
+      </button>
+
+      <!-- v-bind:class -->
+    </div>
+
+    <div id="once">
+      <h2>V-Once</h2>
+      <h3>Whats your favourite breed of dog?</h3>
+      <p><input type="text" v-model="breed" /></p>
+      <p v-once>I Like {{ breed }}</p>
+      <p>You now like {{ breed }}</p>
+      <pre>{{$data}}</pre>
+    </div>
+
+    <div id="onClick">
+      <h2>V-On / @</h2>
+      <h3>Add and take away quanities</h3>
+      <button v-on:click="counter > 0 ? counter -= 1 : 0">-</button>
+      <button @click="counter += 1">+</button>
+      <h3>Quanity:{{ counter }}</h3>
+      <button type="submit" @click="">Submit</button>
+    </div>
+
+    <div id="htmlOutput">
+      <h2>V-Html</h2>
+      <h3>Whats your favourite breed of dog?</h3>
+      <p v-html="breed"></p>
+    </div>
+
+    <div id="vText">
+      <h2>V-Text</h2>
+      <h3>Whats your favourite breed of dog?</h3>
+      <input type="text" v-model="breed" />
+      <h4>v-text</h4>
+      <p v-text="breed"></p>
+      <h4>Mustache</h4>
+      <p>{{ breed }}</p>
+    </div>
+
+    <script src="./js/App.js"></script>
+  </body>
+</html>
