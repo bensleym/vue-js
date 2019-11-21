@@ -1,5 +1,9 @@
 # vue-js
 
+## Setup
+
+This project has been put together using `Parcel.js`
+
 ## Introduction to Vue.js
 
 `index.html` Displays an introduction to vue and the basic `v-`'s
